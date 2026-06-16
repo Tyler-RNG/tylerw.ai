@@ -1,0 +1,131 @@
+---
+import { Image } from 'astro:assets';
+import { site } from '../data/site';
+import Terminal from './Terminal.astro';
+import headshot from '../assets/headshot.png';
+---
+
+<section class="hero" id="top">
+  <div class="grid-bg"></div>
+  <div class="container hero-inner">
+    <div class="hero-copy">
+      <p class="eyebrow">{site.eyebrow}</p>
+      <h1 class="hero-name">{site.name}</h1>
+      <p class="hero-tagline">{site.tagline}</p>
+      <div class="hero-actions">
+        <a class="btn btn-primary" href={site.cta.href} target="_blank" rel="noopener">
+          {site.cta.label}
+        </a>
+        <a class="btn btn-ghost" href="#work">See what I do</a>
+      </div>
+
+      <div class="hero-photo">
+        <span class="halo" aria-hidden="true"></span>
+        <span class="frame">
+          <Image
+            src={headshot}
+            alt={`Portrait of ${site.name}`}
+            width={220}
+            height={220}
+            densities={[1, 2]}
+            loading="eager"
+          />
+        </span>
+      </div>
+    </div>
+
+    <div class="hero-term">
+      <Terminal />
+    </div>
+  </div>
+</section>
+
+<style>
+  .hero {
+    position: relative;
+    overflow: hidden;
+    padding-block: clamp(48px, 8vw, 96px);
+  }
+  .hero-inner {
+    position: relative;
+    display: grid;
+    grid-template-columns: 1.05fr 1fr;
+    align-items: center;
+    gap: clamp(28px, 5vw, 64px);
+  }
+  .hero-copy {
+    position: relative;
+  }
+  .hero-name {
+    font-size: clamp(40px, 7vw, 68px);
+    font-weight: var(--ag-fw-semi);
+    letter-spacing: -0.025em;
+    line-height: 1.02;
+    color: var(--ag-text-bright);
+    margin: 14px 0 0;
+  }
+  .hero-tagline {
+    font-size: clamp(16px, 2vw, 19px);
+    color: var(--ag-muted);
+    line-height: 1.55;
+    max-width: 34ch;
+    margin-top: 18px;
+  }
+  .hero-actions {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 12px;
+    margin-top: 28px;
+  }
+
+  /* Floating headshot, accent halo + ring + glow (banner motif) */
+  .hero-photo {
+    position: absolute;
+    top: -8px;
+    right: -8px;
+    width: clamp(72px, 9vw, 96px);
+    aspect-ratio: 1;
+  }
+  .hero-photo .halo {
+    position: absolute;
+    inset: -22%;
+    border-radius: 999px;
+    background: radial-gradient(circle, var(--ag-accent-50), transparent 64%);
+    opacity: 0.5;
+  }
+  .hero-photo .frame {
+    position: absolute;
+    inset: 0;
+    display: block;
+    border-radius: 999px;
+    overflow: hidden;
+    background: var(--ag-panel);
+    border: 2px solid var(--ag-accent-50);
+    box-shadow: var(--ag-glow-accent);
+  }
+  .hero-photo :global(img) {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    object-position: 50% 26%;
+  }
+
+  .hero-term {
+    position: relative;
+  }
+
+  @media (max-width: 860px) {
+    .hero-inner {
+      grid-template-columns: 1fr;
+      gap: 36px;
+    }
+    .hero-photo {
+      position: static;
+      width: 84px;
+      margin-top: 26px;
+    }
+    .hero-photo .frame {
+      position: relative;
+    }
+  }
+</style>

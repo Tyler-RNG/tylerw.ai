@@ -1,0 +1,76 @@
+---
+import { site } from '../data/site';
+import Icon from './Icon.astro';
+---
+
+<footer class="footer">
+  <div class="container footer-inner">
+    <div class="left">
+      <span class="brand-name">{site.name}</span>
+      <span class="meta mono">{site.domain}</span>
+    </div>
+
+    <nav class="socials" aria-label="Social links">
+      {
+        site.socials.map((s) => (
+          <a href={s.href} target="_blank" rel="noopener" aria-label={s.label} title={s.label}>
+            <Icon name={s.icon} size={18} />
+          </a>
+        ))
+      }
+      <a href={`mailto:${site.email}`} aria-label="Email" title="Email">
+        <Icon name="mail" size={18} />
+      </a>
+    </nav>
+  </div>
+</footer>
+
+<style>
+  .footer {
+    border-top: 1px solid var(--ag-border);
+    padding-block: 28px;
+  }
+  .footer-inner {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 16px;
+  }
+  .left {
+    display: flex;
+    align-items: baseline;
+    gap: 12px;
+  }
+  .brand-name {
+    font-weight: var(--ag-fw-semi);
+    color: var(--ag-text);
+  }
+  .meta {
+    font-size: var(--ag-fs-mini);
+    color: var(--ag-muted);
+  }
+  .socials {
+    display: flex;
+    align-items: center;
+    gap: 6px;
+  }
+  .socials a {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    width: 36px;
+    height: 36px;
+    border-radius: var(--ag-radius-sm);
+    color: var(--ag-muted);
+    border: 1px solid transparent;
+    transition:
+      color var(--ag-dur-base) var(--ag-ease),
+      border-color var(--ag-dur-base) var(--ag-ease),
+      background var(--ag-dur-base) var(--ag-ease);
+  }
+  .socials a:hover {
+    color: var(--ag-text);
+    background: var(--ag-panel);
+    border-color: var(--ag-border-2);
+  }
+</style>

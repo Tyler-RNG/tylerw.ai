@@ -1,0 +1,79 @@
+---
+import { site } from '../data/site';
+---
+
+<header class="nav">
+  <div class="container nav-inner">
+    <a class="brand" href="#top">
+      <span class="dot" aria-hidden="true"></span>
+      <span class="brand-name">{site.name}</span>
+    </a>
+    <nav class="links" aria-label="Primary">
+      <a href="#work">What I do</a>
+      <a href="#about">About</a>
+      <a href="#contact">Contact</a>
+      <a class="btn btn-primary nav-cta" href={site.cta.href} target="_blank" rel="noopener">
+        {site.cta.label}
+      </a>
+    </nav>
+  </div>
+</header>
+
+<style>
+  .nav {
+    position: sticky;
+    top: 0;
+    z-index: 50;
+    background: color-mix(in srgb, var(--ag-bg) 80%, transparent);
+    backdrop-filter: blur(8px);
+    border-bottom: 1px solid var(--ag-border);
+  }
+  .nav-inner {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    height: 56px;
+  }
+  .brand {
+    display: inline-flex;
+    align-items: center;
+    gap: 9px;
+    color: var(--ag-text-bright);
+    font-weight: var(--ag-fw-semi);
+    letter-spacing: -0.01em;
+    text-decoration: none;
+  }
+  .dot {
+    width: 9px;
+    height: 9px;
+    border-radius: 999px;
+    background: var(--ag-accent);
+    box-shadow: var(--ag-glow-accent);
+  }
+  .links {
+    display: flex;
+    align-items: center;
+    gap: 22px;
+  }
+  .links a {
+    color: var(--ag-muted);
+    font-size: var(--ag-fs-base);
+    text-decoration: none;
+    transition: color var(--ag-dur-base) var(--ag-ease);
+  }
+  .links a:hover {
+    color: var(--ag-text);
+  }
+  .nav-cta {
+    color: #0a0d13 !important;
+    padding: 9px 14px;
+  }
+  .nav-cta:hover {
+    color: #0a0d13 !important;
+  }
+  @media (max-width: 640px) {
+    .links a:not(.nav-cta) {
+      display: none;
+    }
+  }
+</style>
