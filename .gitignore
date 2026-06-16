@@ -29,3 +29,7 @@ Thumbs.db
 # local scratch
 _branding_extract/
 *.zip
+
+.dev.vars*
+!.dev.vars.example
+!.env.example
