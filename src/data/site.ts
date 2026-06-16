@@ -9,7 +9,7 @@ export const site = {
   eyebrow: 'AI productivity coaching',
   // One-line value prop. Plain, direct, sentence case, no hype.
   tagline:
-    'I help motivated people use AI to get more done — close 1:1 work, backed by a group that keeps you moving.',
+    'I help motivated people use AI to get more done. Close 1:1 work, backed by a group that keeps you moving.',
 
   // — Primary call to action (book a 1:1, scrolls to the embed) ——
   cta: {
@@ -23,7 +23,7 @@ export const site = {
     label: 'Join Token Maxers',
     href: 'https://whop.com/token-maxers',
     blurb:
-      'A small, private room of motivated people using AI to do more — real workflows, shared wins, and people who keep you honest.',
+      'A small, private room of motivated people using AI to do more. Real workflows, shared wins, and people who keep you honest.',
   },
 
   // — Cal.com booking link (used by the inline embed) ——————————————
@@ -41,7 +41,7 @@ export const site = {
     entries: [
       { key: '1:1', desc: 'work through your real workflow, live' },
       { key: 'ai', desc: 'use AI to ship, not to dabble' },
-      { key: 'group', desc: 'token maxers — a room that pushes you' },
+      { key: 'group', desc: 'token maxers, a room that pushes you' },
       { key: 'momentum', desc: 'accountability that compounds' },
     ],
   },
@@ -51,7 +51,7 @@ export const site = {
     {
       icon: 'compass',
       title: '1:1 coaching',
-      body: 'We work through your real projects together — your tools, your workflow, live.',
+      body: 'We work through your real projects together. Your tools, your workflow, live.',
     },
     {
       icon: 'terminal',
@@ -73,20 +73,21 @@ export const site = {
   // — About ————————————————————————————————————————————————————
   about: {
     body: [
-      "I've used every AI tool under the sun since 2019 — I know what's good, what's bad, and how to actually get things done with it.",
-      'Before going all-in on AI, I led software and cybersecurity work at Lockheed Martin and ran technical programs. Now I run my own startup and help motivated people move just as fast.',
+      "I've used every AI tool under the sun since 2019. I know what's good, what's bad, and how to actually get things done with it.",
+      'Before going all-in on AI, I led software and cybersecurity work at Lockheed Martin and ran technical programs. Now I run CipherPlay, my own startup, and help motivated people move just as fast.',
     ],
     status: { live: true, label: 'Open to new members' },
   },
 
   // — Work history ————————————————————————————————————————————
   experienceIntro:
-    "Hands-on with AI since 2019. Real software, security, and programs behind me — not theory.",
+    'Hands-on with AI since 2019. Real software, security, and programs behind me, not theory.',
   experience: [
     {
-      org: 'Founder',
-      role: 'AI-native startup',
-      note: 'Building and shipping with AI every day.',
+      org: 'CipherPlay',
+      role: 'Founder',
+      href: 'https://cipherplay.net',
+      note: 'My startup. Building and shipping with AI every day.',
     },
     {
       org: 'Lockheed Martin',
