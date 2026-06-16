@@ -1,86 +1,94 @@
 // ============================================================
 //  SITE CONTENT — edit everything here. One file, plain text.
-//  Anything marked  // TODO  is a placeholder to confirm/replace.
 // ============================================================
 
 export const site = {
   // — Identity ————————————————————————————————————————————————
-  name: 'Tyler W', // TODO: full name as you want it displayed
+  name: 'Tyler Warburton',
   domain: 'tylerw.ai',
-  eyebrow: 'Coach & Mentor', // tiny uppercase label above the name
+  eyebrow: 'AI productivity coaching',
   // One-line value prop. Plain, direct, sentence case, no hype.
-  tagline: 'I help ambitious people achieve more — career, growth, and shipping ideas.', // TODO
+  tagline:
+    'I help motivated people use AI to get more done — close 1:1 work, backed by a group that keeps you moving.',
 
-  // — Primary call to action ——————————————————————————————————
+  // — Primary call to action (book a 1:1, scrolls to the embed) ——
   cta: {
-    label: 'Book a session',
-    // TODO: your scheduler link (Cal.com / Calendly / etc.)
-    href: 'https://cal.com/your-handle',
+    label: 'Book a 1:1',
+    href: '#book',
+  },
+
+  // — The private group ————————————————————————————————————————
+  group: {
+    name: 'Token Maxers',
+    label: 'Join Token Maxers',
+    href: 'https://whop.com/token-maxers',
+    blurb:
+      'A small, private room of motivated people using AI to do more — real workflows, shared wins, and people who keep you honest.',
+  },
+
+  // — Cal.com booking link (used by the inline embed) ——————————————
+  cal: {
+    link: 'tyler-warburton/token-max',
+    namespace: 'token-max',
   },
 
   // — Terminal: the `coach --help` listing in the hero ————————————
-  // key = short offering, desc = plain-language one-liner.
   terminal: {
     user: 'you',
     host: 'signal',
     command: 'coach --help',
-    intro: 'for ambitious people who want more:',
-    // TODO: replace these four with your real offerings
+    intro: 'for motivated people who want to do more with AI:',
     entries: [
-      { key: 'growth', desc: 'achieve more, faster' },
-      { key: 'career', desc: 'level up your trajectory' },
-      { key: 'building', desc: 'ship your ideas, AI-powered' },
-      { key: 'mentoring', desc: '1:1s that compound' },
+      { key: '1:1', desc: 'work through your real workflow, live' },
+      { key: 'ai', desc: 'use AI to ship, not to dabble' },
+      { key: 'group', desc: 'token maxers — a room that pushes you' },
+      { key: 'momentum', desc: 'accountability that compounds' },
     ],
   },
 
-  // — "What I do" cards (mirror the terminal entries, with detail) —
+  // — "What I do" cards ————————————————————————————————————————
   services: [
     {
-      icon: 'trending-up',
-      title: 'Growth',
-      body: 'Get unstuck and move faster. Clear next steps, real accountability.', // TODO
-    },
-    {
       icon: 'compass',
-      title: 'Career',
-      body: 'Level up your trajectory — positioning, decisions, and leverage.', // TODO
+      title: '1:1 coaching',
+      body: 'We work through your real projects together — your tools, your workflow, live.',
     },
     {
       icon: 'terminal',
-      title: 'Building',
-      body: 'Ship your ideas with AI as a force multiplier, not a gimmick.', // TODO
+      title: 'AI that ships',
+      body: 'Use AI to actually produce, not just chat. Concrete systems you keep.',
     },
     {
       icon: 'users',
-      title: 'Mentoring',
-      body: '1:1 sessions that compound — operator-to-operator, no fluff.', // TODO
+      title: 'The group',
+      body: 'Token Maxers: a small, private room of motivated people pushing each other forward.',
+    },
+    {
+      icon: 'trending-up',
+      title: 'Momentum',
+      body: 'Support and accountability that compound week over week.',
     },
   ],
 
   // — About ————————————————————————————————————————————————————
   about: {
-    // Short, direct bio. 2-3 sentences max. Brand voice.
     body: [
-      'I build, and I help others build.', // TODO
-      'Years of shipping real products taught me what actually moves the needle. I bring that to every session — concrete examples over abstractions, momentum over theory.', // TODO
+      'I build with AI every day, and I help others do the same.',
+      'I started Token Maxers to put motivated people in one room — close 1:1 work plus a group that keeps you honest. Less theory, more shipped.',
     ],
-    // Small status line under the bio. Set live:true for the green dot.
-    status: { live: true, label: 'Open to new mentees' }, // TODO
+    status: { live: true, label: 'Open to new members' },
   },
 
   // — Proof / testimonials (optional). Empty array hides the section. —
-  testimonials: [
-    // { quote: 'Tyler helped me ...', author: 'Name', role: 'Title, Company' }, // TODO
-  ],
+  testimonials: [],
 
   // — Contact / links ——————————————————————————————————————————
-  email: 'tylerw9954@gmail.com', // TODO: confirm public contact email
+  email: 'tylerw9954@gmail.com',
   socials: [
-    // TODO: confirm/replace handles; remove any you don't want shown
     { icon: 'github', label: 'GitHub', href: 'https://github.com/Tyler-RNG' },
-    { icon: 'linkedin', label: 'LinkedIn', href: 'https://linkedin.com/in/your-handle' },
-    { icon: 'x', label: 'X', href: 'https://x.com/your-handle' },
+    // Add LinkedIn / X here when you want them shown:
+    // { icon: 'linkedin', label: 'LinkedIn', href: 'https://linkedin.com/in/...' },
+    // { icon: 'x', label: 'X', href: 'https://x.com/...' },
   ],
 } as const;
 

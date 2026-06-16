@@ -1,0 +1,187 @@
+---
+import { site } from '../data/site';
+import Icon from './Icon.astro';
+const { cal, group, cta } = site;
+---
+
+<section class="section book" id="book">
+  <div class="container">
+    <div class="head">
+      <p class="eyebrow">Work with me</p>
+      <h2 class="section-title">Get more done with AI.</h2>
+      <p class="sub">Two ways in: a private group of motivated people, or close 1:1 work.</p>
+    </div>
+
+    <!-- Group push -->
+    <div class="group-card">
+      <div class="grid-bg"></div>
+      <div class="group-inner">
+        <div class="group-copy">
+          <span class="tag mono">private group</span>
+          <h3 class="group-name">{group.name}</h3>
+          <p class="group-blurb">{group.blurb}</p>
+        </div>
+        <a class="btn btn-primary group-btn" href={group.href} target="_blank" rel="noopener">
+          <Icon name="users" size={18} />
+          {group.label}
+          <Icon name="arrow-up-right" size={16} />
+        </a>
+      </div>
+    </div>
+
+    <!-- 1:1 booking embed -->
+    <div class="one-on-one">
+      <div class="oo-head">
+        <span class="tag mono">1:1</span>
+        <h3 class="oo-title">{cta.label}</h3>
+        <p class="oo-sub">Pick a time below. We'll work through your real workflow together.</p>
+      </div>
+      <div id="cal-inline" class="cal-embed"></div>
+      <noscript>
+        <a class="btn btn-primary" href={`https://cal.com/${cal.link}`} target="_blank" rel="noopener">
+          Open the scheduler
+        </a>
+      </noscript>
+    </div>
+  </div>
+</section>
+
+<script is:inline define:vars={{ calLink: cal.link, ns: cal.namespace }}>
+  (function (C, A, L) {
+    let p = function (a, ar) { a.q.push(ar); };
+    let d = C.document;
+    C.Cal = C.Cal || function () {
+      let cal = C.Cal; let ar = arguments;
+      if (!cal.loaded) { cal.ns = {}; cal.q = cal.q || []; d.head.appendChild(d.createElement('script')).src = A; cal.loaded = true; }
+      if (ar[0] === L) {
+        const api = function () { p(api, arguments); };
+        const namespace = ar[1]; api.q = api.q || [];
+        if (typeof namespace === 'string') { cal.ns[namespace] = cal.ns[namespace] || api; p(cal.ns[namespace], ar); p(cal, ['initNamespace', namespace]); }
+        else p(cal, ar);
+        return;
+      }
+      p(cal, ar);
+    };
+  })(window, 'https://app.cal.com/embed/embed.js', 'init');
+
+  Cal('init', ns, { origin: 'https://app.cal.com' });
+  Cal.ns[ns]('inline', {
+    elementOrSelector: '#cal-inline',
+    config: { layout: 'month_view', theme: 'dark' },
+    calLink: calLink,
+  });
+  Cal.ns[ns]('ui', {
+    theme: 'dark',
+    cssVarsPerTheme: { dark: { 'cal-brand': '#5b8def' } },
+    hideEventTypeDetails: false,
+    layout: 'month_view',
+  });
+</script>
+
+<style>
+  .head {
+    text-align: center;
+    margin-bottom: 36px;
+  }
+  .head .eyebrow {
+    display: block;
+  }
+  .section-title {
+    margin-top: 12px;
+  }
+  .sub {
+    margin: 14px auto 0;
+    color: var(--ag-muted);
+    font-size: clamp(15px, 2vw, 17px);
+    max-width: 48ch;
+  }
+  .tag {
+    display: inline-block;
+    font-size: var(--ag-fs-mini);
+    text-transform: uppercase;
+    letter-spacing: 0.16em;
+    color: var(--ag-accent);
+    background: var(--ag-accent-12);
+    border: 1px solid var(--ag-accent-50);
+    border-radius: var(--ag-radius-pill);
+    padding: 4px 10px;
+  }
+
+  /* Group card */
+  .group-card {
+    position: relative;
+    overflow: hidden;
+    background: var(--ag-panel);
+    border: 1px solid var(--ag-border);
+    border-radius: var(--ag-radius-lg);
+    padding: clamp(24px, 4vw, 40px);
+  }
+  .group-inner {
+    position: relative;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 28px;
+  }
+  .group-name {
+    font-size: clamp(22px, 3vw, 30px);
+    font-weight: var(--ag-fw-semi);
+    color: var(--ag-text-bright);
+    letter-spacing: -0.015em;
+    margin: 12px 0 0;
+  }
+  .group-blurb {
+    margin-top: 10px;
+    color: var(--ag-muted);
+    max-width: 52ch;
+    line-height: 1.55;
+  }
+  .group-btn {
+    flex: none;
+    white-space: nowrap;
+  }
+
+  /* 1:1 embed */
+  .one-on-one {
+    margin-top: 16px;
+    background: var(--ag-panel);
+    border: 1px solid var(--ag-border);
+    border-radius: var(--ag-radius-lg);
+    padding: clamp(20px, 3vw, 28px);
+  }
+  .oo-head {
+    margin-bottom: 18px;
+  }
+  .oo-title {
+    font-size: var(--ag-fs-h2);
+    font-weight: var(--ag-fw-semi);
+    color: var(--ag-text-bright);
+    margin: 12px 0 0;
+  }
+  .oo-sub {
+    margin-top: 8px;
+    color: var(--ag-muted);
+    font-size: var(--ag-fs-base);
+  }
+  .cal-embed {
+    width: 100%;
+    min-height: 560px;
+    border-radius: var(--ag-radius-md);
+    overflow: hidden;
+  }
+
+  @media (max-width: 720px) {
+    .group-inner {
+      flex-direction: column;
+      align-items: flex-start;
+      gap: 20px;
+    }
+    .group-btn {
+      width: 100%;
+      justify-content: center;
+    }
+    .cal-embed {
+      min-height: 620px;
+    }
+  }
+</style>
