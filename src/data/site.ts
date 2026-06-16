@@ -73,23 +73,36 @@ export const site = {
   // — About ————————————————————————————————————————————————————
   about: {
     body: [
-      'I build with AI every day, and I help others do the same.',
-      'I started Token Maxers to put motivated people in one room — close 1:1 work plus a group that keeps you honest. Less theory, more shipped.',
+      "I've used every AI tool under the sun since 2019 — I know what's good, what's bad, and how to actually get things done with it.",
+      'Before going all-in on AI, I led software and cybersecurity work at Lockheed Martin and ran technical programs. Now I run my own startup and help motivated people move just as fast.',
     ],
     status: { live: true, label: 'Open to new members' },
   },
 
-  // — Proof / testimonials (optional). Empty array hides the section. —
-  testimonials: [],
+  // — Work history ————————————————————————————————————————————
+  experienceIntro:
+    "Hands-on with AI since 2019. Real software, security, and programs behind me — not theory.",
+  experience: [
+    {
+      org: 'Founder',
+      role: 'AI-native startup',
+      note: 'Building and shipping with AI every day.',
+    },
+    {
+      org: 'Lockheed Martin',
+      role: 'Senior Software Engineer',
+      note: 'Led cybersecurity efforts on critical programs.',
+    },
+    {
+      org: 'Lockheed Martin',
+      role: 'Program Management',
+      note: 'Drove complex technical programs end to end.',
+    },
+  ],
 
   // — Contact / links ——————————————————————————————————————————
   email: 'tylerw9954@gmail.com',
-  socials: [
-    { icon: 'github', label: 'GitHub', href: 'https://github.com/Tyler-RNG' },
-    // Add LinkedIn / X here when you want them shown:
-    // { icon: 'linkedin', label: 'LinkedIn', href: 'https://linkedin.com/in/...' },
-    // { icon: 'x', label: 'X', href: 'https://x.com/...' },
-  ],
+  socials: [{ icon: 'linkedin', label: 'LinkedIn', href: 'https://www.linkedin.com/in/tyler-warburton/' }],
 } as const;
 
 export type Site = typeof site;
